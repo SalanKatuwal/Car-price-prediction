@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #5cb85c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Car Price Prediction</h1>
+    <form action="/predict" method="post">
+        <h1>Fuel-type</h1>
+        <div style="display: flex; gap: 10px;">
+            <input type="radio" id="fuel-type-diesel" name="fuel-type" value="diesel" required>
+            <label for="fuel-type-diesel">Diesel</label>
+            
+            <input type="radio" id="fuel-type-gas" name="fuel-type" value="gas" required>
+            <label for="fuel-type-gas">Gas</label>
+        </div>
+        
+        
+        <!-- Other Inputs -->
+        <label for="stroke">Stroke:</label>
+        <input type="number" step="any" name="stroke" required><br><br>
+        
+        <label for="bore">Bore:</label>
+        <input type="number" step="any" name="bore" required><br><br>
+        
+        <label for="width">Width:</label>
+        <input type="number" step="any" name="width" required><br><br>
+        
+        <label for="city-mpg">City MPG:</label>
+        <input type="number" step="any" name="city-mpg" required><br><br>
+        
+        <label for="symboling">Symboling:</label>
+        <input type="number" step="any" name="symboling" required><br><br>
+        
+        <label for="highway-mpg">Highway MPG:</label>
+        <input type="number" step="any" name="highway-mpg" required><br><br>
+        
+        <label for="height">Height:</label>
+        <input type="number" step="any" name="height" required><br><br>
+        
+        <!-- Submit Button -->
+        <button type="submit">Predict</button>
+    </form>
+    {% if prediction_text %}
+    <h2>{{ prediction_text }}</h2>
+    {% endif %}
+
+</body>
+</html>
